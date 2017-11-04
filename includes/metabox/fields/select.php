@@ -1,6 +1,8 @@
 <?php
 namespace CometWooCarousel;
 
+use CometWooCarousel\Field_Base;
+
 if( ! defined( 'ABSPATH' ) ) exit;
 
 class Field_Select extends Field_Base {

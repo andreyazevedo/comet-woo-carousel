@@ -50,8 +50,7 @@ class Carousel {
   }
 
   public function metabox_render() {
-    $field = new Field_Text('tipo', 'Fonte de Dados');
-    //echo $field->render();
+
 
     $options = [
       ['value' => 'pages', 'label' => 'Páginas'],

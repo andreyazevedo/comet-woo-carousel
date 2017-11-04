@@ -24,20 +24,15 @@ class Plugin {
     return self::$instance;
   }
 
-  public function includes() {
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/metabox/fields/base.php' );
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/metabox/fields/text.php' );
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/metabox/fields/select.php' );
-
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/utils.php' );
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/carousel.php' );
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/template.php' );
-    include( COMET_WOO_CAROUSEL_PATH . 'includes/shortcode.php' );
+  public function init_autoloader() {
+    require( COMET_WOO_CAROUSEL_PATH . 'includes/autoloader.php') ;
+    Autoloader::init();
   }
 
   public function components() {
     $this->shortcode = new Shortcode();
     $this->carousel = new Carousel();
+    $meta = new Field_Text();
     $args = [
       'post_type' => 'product',
       'posts_per_page' => 40,
@@ -46,8 +41,7 @@ class Plugin {
   }
 
   public function __construct() {
-    $this->includes();
-
+    $this->init_autoloader();
     add_action( 'init', [$this, 'components'] );
   }
 

@@ -1,0 +1,37 @@
+/* Comet Woo Carousel V0.1*/
+
+/*grid*/
+.col-six {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+
+/*fields*/
+#carousel_metabox .inside {
+  padding: 0;
+}
+
+.comet-field {
+  margin: 0;
+  padding: 15px 12px;
+  border-top: #EEEEEE solid 1px;
+}
+
+.comet-field:first-child {
+  border-top-width: 0;
+}
+
+.comet-label label {
+  font-weight: bold;
+}
+
+.comet-input input,
+.comet-input select,
+.comet-input textarea {
+  width: 100%;
+}
+
+.comet-label {
+  margin: 0 0 10px;
+}

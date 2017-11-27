@@ -9,9 +9,10 @@ abstract class Field_Base {
   public $description;
   private $value;
 
-  abstract public function element();
+  abstract public function element( $post_id );
+  abstract public function save( $post_id );
 
-  public function render() { ?>
+  public function render( $post_id ) { ?>
 
     <div class="comet-field">
       <div class="comet-label">
@@ -20,17 +21,25 @@ abstract class Field_Base {
       </div>
       <div class="comet-input">
         <div class="comet-input-wrap">
-          <?php $this->element() ?>
+          <?php $this->element( $post_id ) ?>
         </div>
       </div>
     </div>
 
   <?php }
 
-  public function __construct($name = null, $label = null, $description = null) {
-    $this->name = $name;
-    $this->label = $label;
-    $this->description = $description;
+  public function __construct($args) {
+    $default_args = [
+      'name' => null,
+      'label' => null,
+      'description' => null
+    ];
+
+    $args = array_merge( $default_args, $args );
+
+    $this->name = $args['name'];
+    $this->label = $args['label'];
+    $this->description = $args['description'];
   }
 
 }

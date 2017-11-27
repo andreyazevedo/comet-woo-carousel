@@ -32,12 +32,6 @@ class Plugin {
   public function components() {
     $this->shortcode = new Shortcode();
     $this->carousel = new Carousel();
-    $meta = new Field_Text();
-    $args = [
-      'post_type' => 'product',
-      'posts_per_page' => 40,
-    ];
-    //Carousel::get_items($args);
   }
 
   public function __construct() {

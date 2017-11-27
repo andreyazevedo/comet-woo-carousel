@@ -1,0 +1,23 @@
+{
+  "name": "comet-woo-carousel",
+  "version": "1.0.0",
+  "description": "A free Woocommerce plugin to create and displays products carrousel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreyazevedo/comet-woo-carousel.git"
+  },
+  "author": "Andrey Azevedo",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/andreyazevedo/comet-woo-carousel/issues"
+  },
+  "homepage": "https://github.com/andreyazevedo/comet-woo-carousel#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5"
+  }
+}

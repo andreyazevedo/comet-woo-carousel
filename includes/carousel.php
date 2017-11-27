@@ -9,9 +9,7 @@ class Carousel {
 
   public function __construct() {
     $this->register_post_type();
-
-    add_action( 'add_meta_boxes', [$this, 'register_metabox'] );
-    add_action('admin_enqueue_scripts', [$this, 'add_scripts']);
+    $this->register_metabox();
   }
 
   public function register_post_type() {
@@ -39,48 +37,6 @@ class Carousel {
   }
 
   public function register_metabox() {
-    add_meta_box(
-      'carousel_metabox',
-      __( 'Configurações' ),
-      [$this, 'metabox_render'],
-      self::CPT,
-      'normal',
-      'high'
-    );
-  }
-
-  public function metabox_render() {
-
-
-    $options = [
-      ['value' => 'pages', 'label' => 'Páginas'],
-      ['value' => 'posts', 'label' => 'Posts'],
-    ];
-
-    //$field2 = new Field_Select('tipo', 'Tipo de Página', '', $options);
-    //echo $field2->render();
-      include('templates/metabox/metabox_options.php');
-  }
-
-  public function add_scripts() {
-    if ( Utils::current_page( self::CPT ) ) {
-      wp_enqueue_script(
-        'lib-select2-js',
-        COMET_WOO_CAROUSEL_ASSETS_URL . 'lib/select2/js/select2.min.js',
-        [],
-        '',
-        true
-      );
-
-      wp_enqueue_style(
-        'lib-select2-css',
-        COMET_WOO_CAROUSEL_ASSETS_URL . 'lib/select2/css/select2.min.css'
-      );
-
-      wp_enqueue_style(
-        'comet-woo-carousel-admin-css',
-        COMET_WOO_CAROUSEL_ASSETS_URL . 'css/style.css'
-      );
-    }
+    new Metabox();
   }
 }
